@@ -1,13 +1,15 @@
-function bicicletta(nome, peso){
+function squadra(nome, punti, falliSubiti){
     this.nome=nome;
-    this.peso=peso;
+    this.punti=punti;
+    this.falliSubiti=falliSubiti;
 }
-const biciclette=[new bicicletta("graziella",8),new bicicletta("monster",18),new bicicletta("piuma",5),new bicicletta("tank",38)];
-let biciLeggera=biciclette[0];
-biciclette.forEach((element)=>{
-    if(element.peso<biciLeggera.peso){
-        biciLeggera=element;
-    }
+const randomMinMax = (min, max)=> Math.floor(Math.random()*(max-min)+min);
+const squadre=[new squadra("atalanta",0,0),new squadra("milan",0,0),new squadra("juve",0,0),new squadra("roma",0,0)];
+const soloFalli=[];
+squadre.forEach((element)=>{
+    element.falliSubiti=randomMinMax(0,10);
+    element.punti=randomMinMax(0,5);
+    const {nome,falliSubiti}=element;
+    soloFalli.push({nome,falliSubiti});
 });
-const {nome,peso} = biciLeggera;
-console.log(`La bici più leggera è '${nome}' con il peso di ${peso}kg`);
+console.log(soloFalli);
