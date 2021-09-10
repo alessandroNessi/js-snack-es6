@@ -1,11 +1,7 @@
 /**returns the element between the position a and the position b, b not included */
 const splitArray = (array, a, b) => {
     //filter
-    let newArray = array.filter((element,index)=>{
-        if(index>=a && index<b){
-            return element;
-        }
-    });
+    let newArray = array.filter((element,index)=>(index>=a && index<b));
     
     //foreach
     // const newArray=[];
@@ -24,7 +20,6 @@ document.getElementById("calculate").addEventListener("click", ()=>{
     const b=parseInt(ab[1]);
     if(array.length>b && a<b){
         let result = splitArray(array,a,b);
-        console.log(result);
         resultDiv.innerHTML=result;
     }else{
         alert(`c'è qualche errore nell'input`);
